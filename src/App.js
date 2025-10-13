@@ -1,25 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Home from  './pages/Home.jsx';
+// import posts from "./data/posts";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          課題１（再テスト）
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return (
+        <Home/>
+    );
 }
-
-export default App;
