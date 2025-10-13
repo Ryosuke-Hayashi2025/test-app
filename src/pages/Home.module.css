@@ -1,8 +1,8 @@
 /* Home.module.css */
 
 ul {
-list-style: none;
-padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 .container {
@@ -10,22 +10,22 @@ padding-left: 0;
   max-width: 800px;
   padding: 0 1rem;
 }
-.Block{
-    border: 1px solid #ccc;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 2rem;
-    padding: 1rem 1rem 1rem 1rem;
+.Block {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
-.test{
-    padding-right: 10rem;
+.test {
+  padding-right: 10rem;
 }
 
 .Title {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  margin-top: 0.5rem
+  margin-top: 0.5rem;
 }
 
 .Tag {
@@ -47,7 +47,6 @@ padding-left: 0;
   border-radius: 0.2rem;
 }
 
-
 .Item {
   border: 1px solid #ccc;
   flex-direction: row;
@@ -61,7 +60,7 @@ padding-left: 0;
   padding-top: 1rem;
 }
 
-.Body{
+.Body {
   font-size: 1rem;
   line-height: 1.5;
   display: -webkit-box;
