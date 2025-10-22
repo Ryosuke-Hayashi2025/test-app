@@ -9,11 +9,15 @@ const Detail = () => {
   const { id } = useParams();
   const post = posts.find((post) => post.id.toString() === id);
 
+  if (!post) {
+    return <p>記事が見つかりませんでした。</p>;
+  }
+
   return (
     <div className={styles.container}>
-      <div key={post.id}>
+      <div>
         <div>
-          <img src={post.thumbnailUrl} alt="記事画像"/>
+          <img src={post.thumbnailUrl} alt="記事画像" />
           <div className={styles.Tag}>
             <div className={styles.Date}>
               {new Date(post.createdAt).toLocaleDateString("ja-JP")}

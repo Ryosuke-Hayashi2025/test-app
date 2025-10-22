@@ -10,7 +10,7 @@ const Home = () => {
     <div className={styles.container}>
       {posts.map((elem) => (
         <div key={elem.id} className={styles.Block}>
-          <Link to={`/pages/${elem.id}`} className={styles.Link}>
+          <Link to={`/posts/${elem.id}`} className={styles.Link}>
             <div>
               <div className={styles.Tag}>
                 <div className={styles.Date}>
