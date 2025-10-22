@@ -1,4 +1,4 @@
-/* Home.module.css */
+/* Detail.module.css */
 
 ul {
   list-style: none;
@@ -9,13 +9,6 @@ ul {
   margin: 40px auto;
   max-width: 800px;
   padding: 0 1rem;
-}
-.Block {
-  border: 1px solid #ccc;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 2rem;
-  padding: 1rem 1rem 1rem 1rem;
 }
 
 .Title {
@@ -61,11 +54,4 @@ ul {
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.Link {
-  text-decoration: none;
-  color: black;
 }
