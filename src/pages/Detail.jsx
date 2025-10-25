@@ -10,6 +10,8 @@ const Detail = () => {
 
   const [post, setPost] = useState(null);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetcher = async () => {
       const res = await fetch(
@@ -17,12 +19,13 @@ const Detail = () => {
       );
       const data = await res.json();
       setPost(data.post);
+      setIsLoading(false);
     };
 
     fetcher();
   }, [id]);
 
-  if (post === null) {
+  if (isLoading) {
     return <p>読み込み中...</p>;
   }
 

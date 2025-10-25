@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 const Home = () => {
   const [posts, setPosts] = useState([]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const fetcher = async () => {
       const res = await fetch(
@@ -15,10 +17,15 @@ const Home = () => {
       );
       const data = await res.json();
       setPosts(data.posts);
+      setIsLoading(false);
     };
 
     fetcher();
   }, []);
+
+  if (isLoading) {
+    return <p>読み込み中...</p>;
+  }
 
   return (
     <div className={styles.container}>
