@@ -2,12 +2,32 @@
 
 import React from "react";
 import { useParams } from "react-router-dom";
-import posts from "../data/posts";
 import styles from "./Detail.module.css";
+import { useState, useEffect } from "react";
 
 const Detail = () => {
   const { id } = useParams();
-  const post = posts.find((post) => post.id.toString() === id);
+
+  const [post, setPost] = useState(null);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetcher = async () => {
+      const res = await fetch(
+        `https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`
+      );
+      const data = await res.json();
+      setPost(data.post);
+      setIsLoading(false);
+    };
+
+    fetcher();
+  }, [id]);
+
+  if (isLoading) {
+    return <p>読み込み中...</p>;
+  }
 
   if (!post) {
     return <p>記事が見つかりませんでした。</p>;
@@ -32,7 +52,7 @@ const Detail = () => {
               })}
             </ul>
           </div>
-          <p className={styles.Title}>APIで取得した{post.title}</p>
+          <p className={styles.Title}>{post.title}</p>
           <div
             className={styles.Body}
             dangerouslySetInnerHTML={{ __html: post.content }}
