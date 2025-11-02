@@ -79,8 +79,8 @@ const Contact = () => {
         throw new Error("送信に失敗しました");
       }
       alert("送信しました");
-      handleClear();
       console.log("送信データ:", form);
+      handleClear();
     } catch (error) {
       console.error("エラー内容:", error);
       alert("送信に失敗しました");
