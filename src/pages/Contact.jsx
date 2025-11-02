@@ -64,25 +64,30 @@ const Contact = () => {
     if (!valid()) return;
 
     setIsSending(true);
-
-    await fetch(
-      "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
+    try {
+      const res = await fetch(
+        "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
+      if (!res.ok) {
+        throw new Error("送信に失敗しました");
       }
-    );
+      alert("送信しました");
+      console.log("送信データ:", form);
+    } catch (error) {
+      console.error("エラー内容:", error);
+      alert("送信に失敗しました");
+    } finally {
+      handleClear();
 
-    console.log("送信データ:", form);
-
-    alert("送信しました");
-
-    handleClear();
-
-    setIsSending(false);
+      setIsSending(false);
+    }
   };
 
   const handleClear = () => {
